@@ -1,6 +1,6 @@
 #!/bin/bash
 # Attach or create tmux session named the same as current directory.
-
+#bala
 session_name="$(basename "$PWD" | tr . -)"
 
 session_exists() {
