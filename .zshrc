@@ -93,6 +93,7 @@ bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
+export DOCPATH="/mnt/c/Users/INPT"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -118,6 +119,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+alias ngrc=" npx generate-react-cli component"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
