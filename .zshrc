@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export PATH=$PATH:~/bin
+
 export ZSH="$HOME/.oh-my-zsh"
 
 
@@ -93,7 +95,7 @@ bindkey -v
 
 source $ZSH/oh-my-zsh.sh
 
-export DOCPATH="/mnt/c/Users/INPT"
+export DOCPATH="/Users/abdelkarimjaja/Documents"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
