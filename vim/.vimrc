@@ -24,7 +24,7 @@ Plug 'christoomey/vim-tmux-runner'
 
 " post install (yarn install | npm install) then load plugin only for editing
 " supported files
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " pulgin fro react dev
 "Plug 'pangloss/vim-javascript'
