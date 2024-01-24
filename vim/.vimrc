@@ -10,7 +10,6 @@ nnoremap <leader>= :wincmd =<cr>
 
 nmap <leader>j o<esc>
 
-
 inoremap jk <esc>
 inoremap kj <esc>
 
@@ -26,7 +25,7 @@ Plug 'christoomey/vim-tmux-runner'
 " supported files
 "Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-" pulgin fro react dev
+"Pulgin fro react dev
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
