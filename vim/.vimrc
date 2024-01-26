@@ -13,6 +13,7 @@ nmap <leader>j o<esc>
 inoremap jk <esc>
 inoremap kj <esc>
 
+nnoremap q <C-v>
 packloadall
 
 autocmd BufWritePre *.html *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json :Prettier
