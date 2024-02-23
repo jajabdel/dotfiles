@@ -1,22 +1,85 @@
 " Use the space key as our leader. Put this near the top of your vimrc
 let mapleader = "\<Space>"
-set relativenumber
-" automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+
+" --------------------- Setting Options ----------------------------
+set relativenumber              " Show relative line numbers.
+set number                      " Display line numbers beside buffer
+set nocompatible                " Don't maintain compatibilty with Vi.
+set hidden                      " Allow buffer change w/o saving
+set lazyredraw                  " Don't update while executing macros
+set backspace=indent,eol,start  " Sane backspace behavior
+set history=1000                " Remember last 1000 commands
+set scrolloff=4                 " Keep at least 4 lines below cursor
+
+" --------------------- Setting Options ----------------------------
+
+
+"  -------------------- Normal Mode Custom Mappings -----------------------------------------
+" Split edit your vimrc. Type space, v, r in sequence to trigger
+nmap <leader>vr :sp $MYVIMRC<cr>  
+
+" Source (reload) your vimrc. Type space, s, o in sequence to trigger
+nmap <leader>so :source $MYVIMRC<cr>
+
+" Map Ctrl-s to write the file
+nmap <C-s> :w<cr>
+
+" Open a new line below the current without entering insert mode. Type space then o to trigger
+nmap <leader>o o<esc>
+
+" append a new line above the current without entering insert mode. Type space then O to trigger
+nmap <leader>O O<esc>
+
+"
+nmap <leader>co ggVG*y
+
+"  -------------------- Normal Mode Custom Mappings -----------------------------------------
+
+"  -------------------- Insert Mode Custom Mappings -----------------------------------------
+" Map Ctrl-s to exit the insert then write the file
+imap <C-s> <esc>:w<cr>	
+
+"  -------------------- Insert Mode Custom Mappings -----------------------------------------
+  
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-nmap <leader>j o<esc>
 
+" Map j then k (or k then j) to exit the inser mode 
 inoremap jk <esc>
 inoremap kj <esc>
+
+
 
 nnoremap <C-q> <C-v>
 packloadall
 
+" ------------------------ Autocommands ----------------------------------
+" Def. Autocammdns allow yout ot hook into Vim's event system.
+"      This lets you run any cmd based on events that Vim triggers
+
+" Bind `q` to close the buffer for help files
+autocmd Filetype help nnoremap <buffer> q :q<CR>
+
 autocmd BufWritePre *.html *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json :Prettier
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+
+
+" To see the full list of autocmds, go to :h autocmd-events. 
+" ------------------------ Autocommands ----------------------------------
+
+
+" Command aliases for typoed commands (accidentally holding shift too long)
+command! Q q " Bind :Q to :q
+command! Qall qall
+command! QA qall
+command! E e
+
 
 call plug#begin()
 
