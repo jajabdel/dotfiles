@@ -15,4 +15,6 @@ alias lla='ls -al'
 
 # artisan commands for laravel
 alias art='php artisan'
+alias make='php artisan make:'
 
+export PATH=$PATH:/home/jaja/.local/bin
