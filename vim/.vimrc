@@ -30,8 +30,19 @@ nmap <leader>o o<esc>
 " append a new line above the current without entering insert mode. Type space then O to trigger
 nmap <leader>O O<esc>
 
-"
+" Pre-populate a split command with the current directory
+nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
+
+" Edit your vimrc in a new tab
+nmap <leader>vi :tabedit ~/.vimrc<cr>
+
+" Copy the entire buffer into the system register
 nmap <leader>co ggVG*y
+
+" Move up and down by visible lines if current line is wrapped
+nmap j gj
+nmap k gk
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
 
@@ -74,12 +85,14 @@ autocmd VimResized * :wincmd =
 " ------------------------ Autocommands ----------------------------------
 
 
+" ------------------------ Custom Commands ----------------------------------
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
 command! Qall qall
 command! QA qall
 command! E e
 
+" ------------------------ Custom Commands ----------------------------------
 
 call plug#begin()
 
