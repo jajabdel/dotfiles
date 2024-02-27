@@ -15,6 +15,9 @@ set scrolloff=4                 " Keep at least 4 lines below cursor
 
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
+
+" Easy access to the start of the line
+nmap 0 ^
 " Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :sp $MYVIMRC<cr>  
 
