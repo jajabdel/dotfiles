@@ -1,4 +1,4 @@
-" Use the space key as our leader. Put this near the top of your vimrc
+"Use the space key as our leader. Put this near the top of your vimrc
 let mapleader = "\<Space>"
 
 " --------------------- Setting Options ----------------------------
@@ -32,6 +32,7 @@ nmap <leader>o o<esc>
 
 " append a new line above the current without entering insert mode. Type space then O to trigger
 nmap <leader>O O<esc>
+
 
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
@@ -96,6 +97,10 @@ command! QA qall
 command! E e
 
 " ------------------------ Custom Commands ----------------------------------
+"   
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g \""'
+" let g:ctrlp_use_caching = 0
 
 call plug#begin()
 
