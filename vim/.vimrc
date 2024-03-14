@@ -99,22 +99,24 @@ command! E e
 " ------------------------ Custom Commands ----------------------------------
 "   
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
-" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g \""'
-" let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 call plug#begin()
 
 Plug 'christoomey/vim-tmux-runner'
+Plug 'christoomey/vim-system-copy'
+
 
 " post install (yarn install | npm install) then load plugin only for editing
 " supported files
-"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-"Pulgin fro react dev
-"Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
-"Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-"Plug 'jparise/vim-graphql'
+" Pulgin fro react dev
+" Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'jparise/vim-graphql'
 
 call plug#end()

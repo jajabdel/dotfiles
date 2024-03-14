@@ -17,6 +17,8 @@ alias lla='ls -al'
 alias art='php artisan'
 alias make='php artisan make:'
 
+# sqlmap commands
+alias sqlmap='python3 $HOME/sqlmap-dev/sqlmap.py'
 export PATH=$PATH:/home/jaja/.local/bin
 
 
