@@ -1,7 +1,7 @@
 set -o vi
 
 # setxkbmap -option "ctrl:nocaps"
-alias updatebash='source ~/.bashrc'
+alias ubash='source ~/.bashrc'
 
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
@@ -58,3 +58,5 @@ alias nginxt='sudo nginx -t' # syntax errors in any of your Nginx files
 alias gstatus='git status'
 alias gadd='git add'
 alias gcommit='git commit -m '
+alias gpush='git push'
+alias gpull='git pull'
