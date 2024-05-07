@@ -1,5 +1,6 @@
 set -o vi
 
+# setxkbmap -option "ctrl:nocaps"
 alias updatebash='source ~/.bashrc'
 
 alias update='sudo apt update'
@@ -16,6 +17,11 @@ alias lla='ls -al'
 # artisan commands for laravel
 alias art='php artisan'
 alias make='php artisan make:'
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+
+# composer essentials commands
+#alias laravel='composer create-project laravel/laravel'
+alias laravel='function _laravel() { composer create-project laravel/laravel $1; }; _laravel'
 
 # sqlmap commands
 alias sqlmap='python3 $HOME/sqlmap-dev/sqlmap.py'
@@ -28,3 +34,27 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+
+# postgres essentials cmds
+alias post='sudo -i -u postgres'
+
+psql() {
+    sudo -u "$1" psql "$@"
+}
+
+
+
+# nginx/apache essentials commands
+alias status='sudo systemctl status'
+alias start='sudo systemctl start'
+alias restart='sudo systemctl restart'
+alias stop='sudo systemctl stop'
+alias reload='sudo systemctl reload'
+alias nginxt='sudo nginx -t' # syntax errors in any of your Nginx files
+
+
+# git essentials commands
+alias gstatus='git status'
+alias gadd='git add'
+alias gcommit='git commit -m '

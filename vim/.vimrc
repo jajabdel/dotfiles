@@ -3,7 +3,7 @@ let mapleader = "\<Space>"
 
 " --------------------- Setting Options ----------------------------
 set relativenumber              " Show relative line numbers.
-set number                      " Display line numbers beside buffer
+set number                      " Display line numbwers beside buffer
 set nocompatible                " Don't maintain compatibilty with Vi.
 set hidden                      " Allow buffer change w/o saving
 set lazyredraw                  " Don't update while executing macros
@@ -11,7 +11,7 @@ set backspace=indent,eol,start  " Sane backspace behavior
 set history=1000                " Remember last 1000 commands
 set scrolloff=4                 " Keep at least 4 lines below cursor
 
-" --------------------- Setting Options ----------------------------
+" --------------------- Setting Opt"ions ----------------------------
 
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
