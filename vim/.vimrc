@@ -1,7 +1,4 @@
-"Use the space key as our leader. Put this near the top of your vimrc
-let mapleader = "\<Space>"
-
-" --------------------- Setting Options ----------------------------
+" -------------------- Setting Options ----------------------------
 set relativenumber              " Show relative line numbers.
 set number                      " Display line numbwers beside buffer
 set nocompatible                " Don't maintain compatibilty with Vi.
@@ -11,7 +8,7 @@ set backspace=indent,eol,start  " Sane backspace behavior
 set history=1000                " Remember last 1000 commands
 set scrolloff=4                 " Keep at least 4 lines below cursor
 
-" --------------------- Setting Opt"ions ----------------------------
+" --------------------- Setting Options ----------------------------
 
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
@@ -19,7 +16,7 @@ set scrolloff=4                 " Keep at least 4 lines below cursor
 " Easy access to the start of the line
 nmap 0 ^
 " Split edit your vimrc. Type space, v, r in sequence to trigger
-nmap <leader>vr :sp $MYVIMRC<cr>  
+nmap <leader>vr :sp $MYVIMRC<CR>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
@@ -102,10 +99,10 @@ command! E e
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 
-call plug#begin()
+" call plug#begin()
 
-Plug 'christoomey/vim-tmux-runner'
-Plug 'christoomey/vim-system-copy'
+" Plug 'christoomey/vim-tmux-runner'
+" Plug 'christoomey/vim-system-copy'
 
 
 " post install (yarn install | npm install) then load plugin only for editing
@@ -119,4 +116,4 @@ Plug 'christoomey/vim-system-copy'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'jparise/vim-graphql'
 
-call plug#end()
+" call plug#end()
