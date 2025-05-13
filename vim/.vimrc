@@ -12,6 +12,8 @@ set scrolloff=4                 " Keep at least 4 lines below cursor
 
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
+" set mapleader key
+let mapleader=" "
 
 " Easy access to the start of the line
 nmap 0 ^
