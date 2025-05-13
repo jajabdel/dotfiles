@@ -1,6 +1,5 @@
 " -------------------- Setting Options ----------------------------
 set relativenumber              " Show relative line numbers.
-set number                      " Display line numbwers beside buffer
 set nocompatible                " Don't maintain compatibilty with Vi.
 set hidden                      " Allow buffer change w/o saving
 set lazyredraw                  " Don't update while executing macros
@@ -12,8 +11,12 @@ set scrolloff=4                 " Keep at least 4 lines below cursor
 
 
 "  -------------------- Normal Mode Custom Mappings -----------------------------------------
+" nnoremap <SPACE> <Nop>
+
 " set mapleader key
-let mapleader=" "
+let mapleader="\<Space>"
+" let mapleader = " "
+
 
 " Easy access to the start of the line
 nmap 0 ^
