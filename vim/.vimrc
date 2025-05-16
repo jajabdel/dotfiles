@@ -122,3 +122,26 @@ let g:ctrlp_use_caching = 0
 " Plug 'jparise/vim-graphql'
 
 " call plug#end()
+"
+call plug#begin('~/.vim/autoload')
+
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
+
+call plug#end()
+
+" Open file search with Ctrl-P
+nnoremap <C-p> :Files<CR>
+
+" Search in current buffer
+nnoremap <leader>/ :BLines<CR>
+
+" Search all buffers
+nnoremap <leader>? :Lines<CR>
+
+" Switch buffers
+nnoremap <leader>b :Buffers<CR>
+"
