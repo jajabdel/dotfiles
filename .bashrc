@@ -1,5 +1,6 @@
 set -o vi
 
+~/.local/bin/tat
 # setxkbmap -option "ctrl:nocaps"
 alias ubash='source ~/.bashrc'
 alias ..='cd ..'
@@ -75,3 +76,6 @@ alias gremote='git remote'
 # vim essentials commands
 # alias vim=' vim'
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
