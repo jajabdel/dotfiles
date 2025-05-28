@@ -1,6 +1,6 @@
 set -o vi
 
-~/.local/bin/tat
+#~/.local/bin/tat
 # setxkbmap -option "ctrl:nocaps"
 alias ubash='source ~/.bashrc'
 alias ..='cd ..'
