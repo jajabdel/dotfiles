@@ -130,6 +130,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
+Plug 'christoomey/vim-system-copy'
 
 call plug#end()
 
