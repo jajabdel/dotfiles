@@ -78,9 +78,6 @@ alias gremote='git remote'
 
 # vim essentials commands
 # alias vim=' vim'
-export PATH="$HOME/.local/bin:$PATH"
-<<<<<<< HEAD
-export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 
 # 1. Sync only modified files
 alias rsyncmod='function _rsyncmod(){ rsync -avz "$1" "$2"; }; _rsyncmod'
@@ -98,10 +95,8 @@ alias rsyncprog='function _rsyncprog(){ rsync -avz --progress "$1" "$2"; }; _rsy
 alias rsyncfull='function _rsyncfull(){ rsync -aHAX --numeric-ids "$1" "$2"; }; _rsyncfull'
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-=======
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin/:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
->>>>>>> refs/remotes/origin/main
