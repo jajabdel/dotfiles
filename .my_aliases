@@ -1,0 +1,414 @@
+# Certbot essentials commands
+alias cbcert='sudo certbot certificates'                 # List all certificates managed by certbot
+alias cbrenew='sudo certbot renew'                       # Renew all certificates that are due for renewal
+alias cbrenewDry='sudo certbot renew --dry-run'          # Test renewal process without changing anything
+alias cbcertIssue='sudo certbot certonly'                 # Obtain a certificate without installing
+alias cbcertDelete='sudo certbot delete'                  # Delete a certificate from certbot
+alias cbrevoke='sudo certbot revoke'                       # Revoke a certificate
+alias cbshowCert='sudo certbot certificates'               # Show details of certificates (alias to cbcert)
+alias cbhelp='sudo certbot --help'                         # Show certbot help
+alias cbconfigTest='sudo certbot renew --force-renewal'   # Force renew a certificate (use with caution)
+
+# Certbot webroot commands (common for manual webroot validation)
+alias cbwebrootRenew='sudo certbot renew --webroot -w /var/www/html'  # Renew using webroot plugin (adjust path as needed)
+alias cbwebrootCert='sudo certbot certonly --webroot -w /var/www/html -d example.com' # Obtain cert using webroot (replace example.com)
+
+# Certbot standalone commands (for servers without web server running)
+alias cbstandaloneCert='sudo certbot certonly --standalone -d example.com'  # Obtain cert using standalone server
+alias cbstandaloneRenew='sudo certbot renew --standalone'                   # Renew cert using standalone plugin
+
+# Check certbot version
+alias cbversion='certbot --version'
+
+# Renew certs with specific config or cert name
+# Usage: cbspecificRenew example.com
+cbspecificRenew() {
+	if [ -z "$1" ]; then
+		echo "Usage: cbspecificRenew domain_name"
+	else
+		sudo certbot renew --cert-name "$1"
+			fi
+}
+
+# Obtain cert with DNS challenge (for wildcard certs)
+# Example (replace with your DNS plugin and domain):
+# sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/.secrets/cloudflare.ini -d "*.example.com" -d example.com
+alias cbdnsCert='sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/.secrets/cloudflare.ini'
+
+# List all cronjobs for certbot renew (to verify scheduled tasks)
+alias cbcron='crontab -l | grep certbot'
+
+# Reload web server after renewal (common hook)
+# Usage: cbrenewReload nginx|apache
+cbrenewReload() {
+	if [ "$1" == "nginx" ]; then
+		sudo systemctl reload nginx
+			elif [ "$1" == "apache" ]; then
+			sudo systemctl reload httpd
+	else
+		echo "Usage: cbrenewReload nginx|apache"
+			fi
+}
+
+# View Certbot logs (helpful for troubleshooting)
+alias cblog='sudo less /var/log/letsencrypt/letsencrypt.log'
+
+# Certbot auto-renew timer status (for systemd)
+alias cbtimer='systemctl status certbot.timer'
+
+
+# Composer essentials commands
+alias ccreate='composer create-project laravel/laravel'
+alias crequire='composer require'
+alias cupdate='composer update'
+alias cremove='composer remove'
+alias cupdateS='composer self-update'
+alias cinstall='composer install'
+alias cdiagnose='composer diagnose'
+alias caudit='composer audit'
+alias csuggest='composer suggest'
+alias cshow='composer show'
+
+# Additional useful Composer commands
+alias cversion='composer --version'                              # Show Composer version
+alias coutdated='composer outdated'                              # List outdated packages
+alias cupdateV='composer update -v'                              # Update with verbose output
+alias cinstallProd='composer install --no-dev --optimize-autoloader'  # Install for production
+alias cdumpautoloadProd='composer dump-autoload -o'              # Optimize autoload for production
+alias cvalidate='composer validate'                              # Validate composer.json and composer.lock
+alias crequireLock='composer require --no-update'                # Add dependency without install
+alias cinstallProdNoScripts='composer install --no-dev --optimize-autoloader --no-scripts'  # Prod install no scripts
+
+
+
+alias cls='clear'
+alias ll='ls -l'
+alias lla='ls -al'
+
+# ===============================
+# Laravel Artisan Commands
+# ===============================
+
+# Run artisan commands
+alias art='php artisan'
+
+# Make commands shortcut
+alias make='php artisan make:'
+
+# Laravel Sail helper
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+
+# Cache clear
+alias art-cache-clear='php artisan cache:clear'
+
+# Config clear & cache
+alias art-config-clear='php artisan config:clear'
+alias art-config-cache='php artisan config:cache'
+
+# Route cache clear & cache
+alias art-route-clear='php artisan route:clear'
+alias art-route-cache='php artisan route:cache'
+
+# View cache clear
+alias art-view-clear='php artisan view:clear'
+
+# Clear compiled classes
+alias art-clear-compiled='php artisan clear-compiled'
+
+# Run database migrations
+alias art-migrate='php artisan migrate'
+
+# Rollback last migration batch
+alias art-migrate-rollback='php artisan migrate:rollback'
+
+# Reset all migrations
+alias art-migrate-reset='php artisan migrate:reset'
+
+# Refresh migrations (rollback all & migrate)
+alias art-migrate-refresh='php artisan migrate:refresh'
+
+# Seed the database
+alias art-db-seed='php artisan db:seed'
+
+# Create storage link (e.g. for public storage)
+alias art-storage-link='php artisan storage:link'
+
+# Run queue worker
+alias art-queue-work='php artisan queue:work'
+
+# List all routes
+alias art-route-list='php artisan route:list'
+
+# Serve application locally
+alias art-serve='php artisan serve'
+
+# Generate application key
+alias art-key-generate='php artisan key:generate'
+
+# Show application environment
+alias art-env='php artisan env'
+
+# List scheduled tasks
+alias art-schedule-list='php artisan schedule:list'
+
+# Run scheduled tasks manually
+alias art-schedule-run='php artisan schedule:run'
+
+
+# composer essentials commands
+alias ccreate=' composer create-project laravel/laravel'
+alias crequire=' composer require'
+alias cupdate=' composer update'
+alias cremove=' composer remove'
+alias cupdateS=' composer self-update'
+alias cinstall=' composer install'
+alias cdiagnose=' composer diagnose'
+alias caudit=' composer audit'
+alias csuggest=' composer suggest'
+alias cshow=' composer show'
+
+
+# sqlmap commands
+
+
+# postgres essentials cmds
+alias post=' -i -u postgres'
+
+psql() {
+	-u "$1" psql "$@"
+}
+
+
+
+# =============================
+# Apache (httpd) / Nginx Aliases
+# =============================
+
+# --------- Systemctl shortcuts ---------
+
+# Check status of any service
+alias status='systemctl status'
+
+# Start a service
+alias start='systemctl start'
+
+# Restart a service (stop and start)
+alias restart='systemctl restart'
+
+# Stop a service
+alias stop='systemctl stop'
+
+# Reload service config without dropping connections
+alias reload='systemctl reload'
+
+# --------- Apache specific ---------
+
+# Test Apache config syntax
+alias httpdt='sudo httpd -t'
+
+# Test Apache config syntax and exit (CentOS/RedHat)
+alias apachetest='sudo httpd -t'
+
+# Check Apache service status
+alias apacheStatus='systemctl status httpd'
+
+# Start Apache service
+alias apacheStart='sudo systemctl start httpd'
+
+# Restart Apache service
+alias apacheRestart='sudo systemctl restart httpd'
+
+# Reload Apache service config without restart
+alias apacheReload='sudo systemctl reload httpd'
+
+# Stop Apache service
+alias apacheStop='sudo systemctl stop httpd'
+
+# --------- Nginx specific ---------
+
+# Test Nginx config syntax
+alias nginxt='sudo nginx -t'
+
+# Check Nginx service status
+alias nginxStatus='systemctl status nginx'
+
+# Start Nginx service
+alias nginxStart='sudo systemctl start nginx'
+
+# Restart Nginx service
+alias nginxRestart='sudo systemctl restart nginx'
+
+# Reload Nginx service config without restart
+alias nginxReload='sudo systemctl reload nginx'
+
+# Stop Nginx service
+alias nginxStop='sudo systemctl stop nginx'
+
+# --------- Logs ---------
+
+# Tail Apache error log (adjust path if needed)
+alias tailApacheError='sudo tail -f /var/log/httpd/error_log'
+
+# Tail Apache access log (adjust path if needed)
+alias tailApacheAccess='sudo tail -f /var/log/httpd/access_log'
+
+# Tail Nginx error log (adjust path if needed)
+alias tailNginxError='sudo tail -f /var/log/nginx/error.log'
+
+# Tail Nginx access log (adjust path if needed)
+alias tailNginxAccess='sudo tail -f /var/log/nginx/access.log'
+
+# --------- Misc ---------
+
+# Reload systemd daemon after changes
+alias daemonReload='sudo systemctl daemon-reload'
+
+# Show enabled services
+alias listEnabled='systemctl list-unit-files --state=enabled'
+
+# Show failed services
+alias listFailed='systemctl --failed'
+
+
+
+# Set git global user name
+alias gconfigName='git config --global user.name'
+
+# Set git global email
+alias gconfigEmail='git config --global user.email'
+
+# Initialize a new git repository
+alias ginit='git init'
+
+# Show status with branch and short info
+alias gstatus='git status -sb'
+
+# Clone a repo with progress indicator
+alias gclone='git clone --progress'
+
+# Checkout branches or files
+alias gcheck='git checkout'
+
+# List all branches with verbose info and colors
+alias gbranch='git branch -avv --color'
+
+# Show current branch
+alias gbranchCurrent='git branch --show-current'
+
+# Interactive add for chunk staging
+alias gadd='git add -p'
+
+# Commit with message argument, remind if empty
+function gcommit() {
+	if [ -z "$1" ]; then
+		echo "Usage: gcommit \"commit message\""
+	else
+		git commit -m "$1"
+			fi
+}
+
+# Amend last commit without changing message
+alias gamend='git commit --amend --no-edit'
+
+# Push with upstream branch set automatically
+alias gpush='git push --set-upstream origin $(git branch --show-current)'
+
+# Pull with rebase to keep history linear
+alias gpull='git pull --rebase'
+
+# Pretty git log with graph and color
+alias glog='git log --graph --oneline --decorate --all --color'
+
+# Show detailed commit info or file changes with color
+alias gshow='git show --color'
+
+# Remote repositories verbose listing
+alias gremote='git remote -v'
+
+# Clean untracked files (dry run to avoid mistakes)
+alias gclean='git clean -fdn'
+
+# Fetch remote branches and prune deleted ones locally
+alias gfetch='git fetch --prune'
+
+# Stash current changes quickly
+alias gstash='git stash save'
+
+# Apply and remove last stash entry
+alias gstashpop='git stash pop'
+
+# Delete branch safely (with argument)
+gbranchDelete() {
+	if [ -z "$1" ]; then
+		echo "Usage: gbranchDelete branch_name"
+	else
+		git branch -d "$1"
+			fi
+}
+
+# Force delete branch (with argument)
+gbranchForceDelete() {
+	if [ -z "$1" ]; then
+		echo "Usage: gbranchForceDelete branch_name"
+	else
+		git branch -D "$1"
+			fi
+}
+
+
+# ===== General Access Logs =====
+# Follow (tail -f) main access log
+alias acstail='sudo tail -f /var/log/httpd/access_log'
+# Show entire access log formatted as JSON (using jq)
+alias acsjq='sudo cat /var/log/httpd/access_log | jq .'
+
+# ===== CSS Logs =====
+# Follow CSS access log
+alias cssacstail='sudo tail -f /var/log/httpd/css_access.log'
+# Follow CSS error log
+alias csserrtail='sudo tail -f /var/log/httpd/css_error.log'
+# Show CSS access log as JSON
+alias cssacsjq='sudo cat /var/log/httpd/css_access.log | jq .'
+# Show CSS error log as JSON
+alias csserrjq='sudo cat /var/log/httpd/css_error.log | jq .'
+
+# ===== Error Logs =====
+# Follow main error log
+alias errtail='sudo tail -f /var/log/httpd/error_log'
+# Show main error log as JSON
+alias errjq='sudo cat /var/log/httpd/error_log | jq .'
+
+# ===== ModSecurity Logs =====
+# Follow ModSecurity audit log
+alias modtail='sudo tail -f /var/log/httpd/modsec_audit.log'
+# Show ModSecurity audit log as JSON
+alias modjq='sudo cat /var/log/httpd/modsec_audit.log | jq .'
+# Follow ModSecurity debug log
+alias moddbgtail='sudo tail -f /var/log/httpd/modsec_debug.log'
+
+# ===== Portail Logs =====
+# Follow portail access log
+alias portailacstail='sudo tail -f /var/log/httpd/portail_access.log'
+# Follow portail error log
+alias portailerrtail='sudo tail -f /var/log/httpd/portail_error.log'
+
+# ===== SSL Logs =====
+# Follow SSL access log
+alias sslacstail='sudo tail -f /var/log/httpd/ssl_access_log'
+# Follow SSL error log
+alias sslerrtail='sudo tail -f /var/log/httpd/ssl_error_log'
+# Follow SSL request log
+alias sslreqtail='sudo tail -f /var/log/httpd/ssl_request_log'
+
+
+# List all existing tmux sessions
+#
+_tma_complete() {
+	local curr_word="${COMP_WORDS[COMP_CWORD]}"
+		COMPREPLY=( $(compgen -W "$(tmux ls -F '#S' 2>/dev/null)" -- "$curr_word") )
+}
+complete -F _tma_complete tma
+
+alias tmls='tmux ls'
+alias tma='tmux attach -t'
+alias tmnew='tmux new -s'
