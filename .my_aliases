@@ -409,6 +409,10 @@ _tma_complete() {
 }
 complete -F _tma_complete tma
 
-alias tmls='tmux ls'
-alias tma='tmux attach -t'
-alias tmnew='tmux new -s'
+alias tmls='tmux ls'              # List all tmux sessions
+alias tma='tmux attach -t'        # Attach to an existing tmux session
+alias tmnew='tmux new -s'         # Create a new tmux session
+alias tmkill='tmux kill-server'            # Kill all tmux sessions
+alias tmsessionkill='tmux kill-session -t' # Kill a specific tmux session
+
+

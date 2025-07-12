@@ -3,9 +3,9 @@ set -o vi
 #~/.local/bin/tat
 # setxkbmap -option "ctrl:nocaps"
 alias ubash='source ~/.bashrc'
-#alias ..='cd ..'
-#alias .='cd .'
-#:function -() { cd -; }
+alias ..='cd ..'
+alias .='cd .'
+function -() { cd -; }
 
 alias update=' apt update'
 alias upgrade=' apt upgrade'
